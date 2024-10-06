@@ -29,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "bg_background",
-    "path": "sprites/bg_background/bg_background.yy",
+    "name": "bg_wave",
+    "path": "sprites/bg_wave/bg_wave.yy",
   },
   "spriteMaskId": null,
   "visible": true,

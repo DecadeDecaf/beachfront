@@ -4,7 +4,7 @@ if (g.alien != -1) {
 	draw_sprite(spr_stat_mood, _alien.mood - 1, 0, 0);
 	draw_sprite(spr_stat_energy, _alien.energy - 1, 0, 0);
 	draw_sprite(spr_stat_potty, _alien.potty - 1, 0, 0);
-	draw_sprite(spr_stat_food, _alien.food - 1, 0, 0);
+	draw_sprite(spr_stat_food, (_alien.food == 0 ? 6 : _alien.food - 1), 0, 0);
 	draw_set_font(fnt_font);
 	draw_set_color(#10121C);
 	draw_set_halign(fa_left);
@@ -19,11 +19,11 @@ if (g.alien != -1) {
 	draw_text_transformed(160, 536 - _yoff, _alien.firstname, _size, _size, 0);
 	_size = 0.85;
 	_yoff = 0;
-	while (string_width(_alien.task) * _size > 150) {
+	while (string_width(_alien.task) * _size > 155) {
 		_size -= 0.025;
-		_yoff += 0.5;
+		_yoff += 1;
 		
 	}
-	draw_text_transformed(375, 535 - _yoff, _alien.task, _size, _size, 0);
+	draw_text_ext_transformed(375, 530 - _yoff, _alien.task, 64 * _size, 1920, _size, _size, 0);
 	draw_text_transformed(606, 535, g.sanddollars, 0.8, 0.8, 0);
 }
