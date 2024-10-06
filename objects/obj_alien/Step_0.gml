@@ -95,7 +95,7 @@ if (tfc % 240 == 239) {
 		mood++;
 	} else if (task == "Splashing around") {
 		mood++;
-	} else if (task == "Eating fruit" || task == "Eating a corpse") {
+	} else if (task == "Eating a corpse") {
 		potty++;
 	}
 }
@@ -109,7 +109,7 @@ if (tfc % 300 == 299) {
 	}
 }
 
-if (nfc % 3600 == 3599) {
+if (nfc % 4500 == 4499) {
 	mood--;
 	energy--;
 	potty--;
@@ -124,9 +124,29 @@ potty = median(1, potty, 6);
 food = median(0, food, 6);
 
 if (mood + energy + potty + food <= 4 || _starve) {
+	if (!died) {
+		audio_play_sound(sfx_dies, 1, false);
+		died = true;
+	}
 	sprite_index = spr_alien_dead;
 	image_xscale = 1;
 	task = "Dead";
 	alarm[0] = -1;
 	alarm[1] = -1;
+}
+
+if (audio_is_playing(slurrrp) && task != "Drinking saltwater") {
+	audio_stop_sound(slurrrp);
+}
+
+if (audio_is_playing(patpat) && task != "Wandering") {
+	audio_stop_sound(patpat);
+}
+
+if (audio_is_playing(diggyhole) && task != "Buried treasure" && task != "Digging for\nsand dollars") {
+	audio_stop_sound(diggyhole);
+}
+
+if (audio_is_playing(splish) && task != "Splashing around") {
+	audio_stop_sound(splish);
 }

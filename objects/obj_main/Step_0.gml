@@ -23,7 +23,7 @@ _max = (g.tree_upgrade_two ? 5 : (g.tree_upgrade ? 3 : 1));
 
 if (g.fc % _freq == 1200 && instance_number(obj_food) < _max) {
 	var _x_x = irandom_range(60, 690);
-	var _x_y = irandom_range(200, 300);
+	var _x_y = irandom_range(260, 400);
 	instance_create_depth(_x_x, _x_y, 97, obj_food);
 }
 

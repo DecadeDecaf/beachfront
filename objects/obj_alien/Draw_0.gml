@@ -18,3 +18,22 @@ if (g.alien == id) {
 }
 
 draw_self();
+
+if (task != "Dead") {
+	var _warn_y = y - 96;
+	if (food < 3) {
+		draw_sprite(spr_warnings, 3, x + 7, _warn_y)
+		_warn_y -= 28
+	}
+	if (potty < 3) {
+		draw_sprite(spr_warnings, 2, x + 7, _warn_y)
+		_warn_y -= 28
+	}
+	if (energy < 3) {
+		draw_sprite(spr_warnings, 1, x + 7, _warn_y)
+		_warn_y -= 28
+	}
+	if (mood < 3) {
+		draw_sprite(spr_warnings, 0, x + 7, _warn_y)
+	}
+}

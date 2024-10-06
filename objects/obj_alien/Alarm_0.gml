@@ -22,6 +22,7 @@ if (point_distance(x, y, _friend.x, _friend.y) < 96 && id != _friend.id && _frie
 	sprite_index = spr_alien_eat;
 	task = "Eating a corpse";
 	alarm[1] = 450;
+	audio_play_sound(sfx_munch, 0, false);
 	instance_destroy(_friend);
 } else if (position_meeting(x, y, obj_towel)) {
 	if (energy < 6) {
@@ -38,6 +39,7 @@ if (point_distance(x, y, _friend.x, _friend.y) < 96 && id != _friend.id && _frie
 		walkx = irandom_range(60, 1860);
 		walky = irandom_range(60, 1020);
 		image_xscale = (x < walkx ? 1 : -1);
+		audio_play_sound(patpat, -1, true);
 	}
 } else if (_near_castle) {
 	if (mood < 6) {
@@ -50,9 +52,10 @@ if (point_distance(x, y, _friend.x, _friend.y) < 96 && id != _friend.id && _frie
 		walkx = irandom_range(60, 1860);
 		walky = irandom_range(60, 1020);
 		image_xscale = (x < walkx ? 1 : -1);
+		audio_play_sound(patpat, -1, true);
 	}
 } else if (y > (g.tide ? 820 : 940)) {
-	if ((potty < 4 && random(100) <= 75) || potty < 2) {
+	if ((potty < 4 && random(100) <= 70) || potty < 2) {
 		sprite_index = spr_alien_leak;
 		task = "Taking a leak";
 		alarm[1] = 300;
@@ -60,16 +63,19 @@ if (point_distance(x, y, _friend.x, _friend.y) < 96 && id != _friend.id && _frie
 		sprite_index = spr_alien_splashing;
 		task = "Splashing around";
 		alarm[1] = 1200;
+		audio_play_sound(splish, -1, true);
 	} else if (random(100) <= 40) {
 		sprite_index = spr_alien_drinking;
 		task = "Drinking saltwater";
 		alarm[1] = 600;
+		audio_play_sound(slurrrp, 1, true);
 	} else {
 		sprite_index = spr_alien_walking;
 		task = "Wandering";
 		walkx = irandom_range(60, 1860);
 		walky = irandom_range(820, 1020);
 		image_xscale = (x < walkx ? 1 : -1);
+		audio_play_sound(patpat, -1, true);
 	}
 } else if (position_meeting(x, y, obj_hitbox_sand)) {
 	var _digspot = instance_nearest(x, y, obj_x);
@@ -89,46 +95,59 @@ if (point_distance(x, y, _friend.x, _friend.y) < 96 && id != _friend.id && _frie
 	if (_digat) {
 		sprite_index = spr_alien_dig;
 		task = "Buried treasure";
-		alarm[1] = 900;
+		alarm[1] = 880;
+		audio_play_sound(diggyhole, -1, true);
 	} else if (_foodat && food < 6) {
 		sprite_index = spr_alien_eat;
 		task = (_foodspot.image_index == 3 ? "Eating gold fruit" : (_foodspot.image_index == 4 ? "Eating icecream" : "Eating fruit"));
 		alarm[1] = 450;
+		audio_play_sound(sfx_munch, 0, false);
 		instance_destroy(_foodspot);
-	} else if (energy > 2 && random(100) <= 40) {
-		sprite_index = spr_alien_dig;
-		task = "Digging for\nsand dollars";
-		alarm[1] = 1200;
-	} else if ((energy < 5 && random(100) <= 40) || energy < 2) {
+	} else if ((energy < 5 && random(100) <= 20) || (energy < 4 && random(100) <= 25) || energy < 2) {
 		sprite_index = spr_alien_sunbathing;
 		task = "Sunbathing";
 		alarm[1] = 1800;
-	} else if ((mood < 5 && random(100) <= 40) || mood < 2) {
+	} else if ((mood < 5 && random(100) <= 20) || (mood < 4 && random(100) <= 25) || mood < 2) {
 		sprite_index = spr_alien_play;
 		task = "Playing in the sand";
 		alarm[1] = 1800;
-	} else if (mood > 4 && food > 3 && energy > 4 && potty > 3 && random(100) <= 15) {
+	} else if (energy > 2 && random(100) <= 40) {
+		sprite_index = spr_alien_dig;
+		task = "Digging for\nsand dollars";
+		alarm[1] = 1020;
+		audio_play_sound(diggyhole, -1, true);
+	} else if (mood > 4 && food > 3 && energy > 4 && potty > 3 && random(100) <= 20) {
 		sprite_index = spr_alien_sex;
 		task = "Repopulating\n(asexual style)";
 		alarm[1] = 600;
+	} else if (potty < 2) {
+		sprite_index = spr_alien_leak;
+		task = "Taking a leak";
+		alarm[1] = 300;
 	} else {
 		sprite_index = spr_alien_walking;
 		task = "Wandering";
 		walkx = irandom_range(60, 1860);
 		walky = irandom_range(60, 1020);
 		image_xscale = (x < walkx ? 1 : -1);
+		audio_play_sound(patpat, -1, true);
 	}
 } else {
-	if (mood > 4 && food > 3 && energy > 4 && potty > 3 && random(100) <= 35) {
+	if (mood > 4 && food > 3 && energy > 4 && potty > 3 && random(100) <= 40) {
 		sprite_index = spr_alien_sex;
 		task = "Repopulating\n(asexual style)";
 		alarm[1] = 600;
+	} else if ((potty < 4 && random(100) <= 35) || potty < 2) {
+		sprite_index = spr_alien_leak;
+		task = "Taking a leak";
+		alarm[1] = 300;
 	} else {
 		sprite_index = spr_alien_walking;
 		task = "Wandering";
 		walkx = irandom_range(60, 1860);
 		walky = irandom_range(60, 1020);
 		image_xscale = (x < walkx ? 1 : -1);
+		audio_play_sound(patpat, -1, true);
 	}
 }
 

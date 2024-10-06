@@ -4,7 +4,7 @@ if (point_distance(x, y, mouse_x, mouse_y) < 48) {
 	if (mouse_check_button_pressed(mb_left) && g.sanddollars >= price) {
 		g.sanddollars -= price;
 		if (sprite_index == spr_button_towel) {
-			instance_create_depth(1056, 256, 98, obj_towel);
+			instance_create_depth(x, y, 98, obj_towel);
 		} else if (sprite_index == spr_button_fruit) {
 			g.tree_upgrade = true;
 			var _but = instance_create_depth(x, y, depth, obj_button);
@@ -27,6 +27,7 @@ if (point_distance(x, y, mouse_x, mouse_y) < 48) {
 		} else if (sprite_index == spr_button_sandcastle) {
 			instance_create_depth(1408, 672, 97, obj_sandcastle);
 		}
+		audio_play_sound(sfx_chaching, 0, false);
 		instance_destroy();
 	}
 } else {
