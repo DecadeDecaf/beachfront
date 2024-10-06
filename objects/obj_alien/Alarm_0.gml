@@ -25,7 +25,7 @@ if (point_distance(x, y, _friend.x, _friend.y) < 96 && id != _friend.id && _frie
 	audio_play_sound(sfx_munch, 0, false);
 	instance_destroy(_friend);
 } else if (position_meeting(x, y, obj_towel)) {
-	if (energy < 6) {
+	if ((energy < 6 && random(100) <= 50) || energy < 5) {
 		sprite_index = spr_alien_sunbathing;
 		task = "Sunbathing";
 		alarm[1] = 1800;
@@ -55,7 +55,7 @@ if (point_distance(x, y, _friend.x, _friend.y) < 96 && id != _friend.id && _frie
 		audio_play_sound(patpat, -1, true);
 	}
 } else if (y > (g.tide ? 820 : 940)) {
-	if ((potty < 4 && random(100) <= 70) || potty < 2) {
+	if ((potty < 4 && random(100) <= 90) || potty < 2) {
 		sprite_index = spr_alien_leak;
 		task = "Taking a leak";
 		alarm[1] = 300;
@@ -116,7 +116,7 @@ if (point_distance(x, y, _friend.x, _friend.y) < 96 && id != _friend.id && _frie
 		task = "Digging for\nsand dollars";
 		alarm[1] = 1020;
 		audio_play_sound(diggyhole, -1, true);
-	} else if (mood > 4 && food > 3 && energy > 4 && potty > 3 && random(100) <= 20) {
+	} else if (mood > 4 && food > 3 && energy > 4 && potty > 3 && (random(100) <= 30 || (instance_number(obj_alien) < 2 && random(100) <= 45))) {
 		sprite_index = spr_alien_sex;
 		task = "Repopulating\n(asexual style)";
 		alarm[1] = 600;
@@ -133,11 +133,11 @@ if (point_distance(x, y, _friend.x, _friend.y) < 96 && id != _friend.id && _frie
 		audio_play_sound(patpat, -1, true);
 	}
 } else {
-	if (mood > 4 && food > 3 && energy > 4 && potty > 3 && random(100) <= 40) {
+	if (mood > 4 && food > 3 && energy > 4 && potty > 3 && (random(100) <= 40 || (instance_number(obj_alien) < 2 && random(100) <= 60))) {
 		sprite_index = spr_alien_sex;
 		task = "Repopulating\n(asexual style)";
 		alarm[1] = 600;
-	} else if ((potty < 4 && random(100) <= 35) || potty < 2) {
+	} else if ((potty < 4 && random(100) <= 70) || potty < 2) {
 		sprite_index = spr_alien_leak;
 		task = "Taking a leak";
 		alarm[1] = 300;
