@@ -9,11 +9,16 @@ if (g.fc % 200 == 0) {
 var _freq = (g.treasure_upgrade ? 1600 : 3000)
 var _max = (g.treasure_upgrade ? 2 : 1)
 
-
-if (g.fc % _freq == 600 && instance_number(obj_x) < 1) {
+if (g.fc % _freq == 600 && instance_number(obj_x) < _max) {
 	var _x_x = irandom_range(60, 1860);
 	var _x_y = irandom_range(60, 1020);
-	if (position_meeting(_x_x, _x_y, obj_hitbox_sand) && !position_meeting(_x_x, _x_y, obj_tree)) {
+	var _near_castle = false;
+	with (obj_sandcastle) {
+		if (point_distance(x, y, _x_x, _x_y) < 112) {
+			_near_castle = true;
+		}
+	}
+	if (position_meeting(_x_x, _x_y, obj_hitbox_sand) && !position_meeting(_x_x, _x_y, obj_tree) && !_near_castle) {
 		instance_create_depth(_x_x, _x_y, 99, obj_x);
 	}
 }
@@ -40,4 +45,8 @@ with (obj_alien) {
 	if (dragged) {
 		g.alien = id;
 	}
+}
+
+if (!instance_exists(g.alien)) {
+	g.alien = -1;
 }

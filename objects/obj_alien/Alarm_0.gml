@@ -23,6 +23,9 @@ if (point_distance(x, y, _friend.x, _friend.y) < 96 && id != _friend.id && _frie
 	task = "Eating a corpse";
 	alarm[1] = 450;
 	audio_play_sound(sfx_munch, 0, false);
+	if (g.alien == _friend) {
+		g.alien = -1;
+	}
 	instance_destroy(_friend);
 } else if (position_meeting(x, y, obj_towel)) {
 	if ((energy < 6 && random(100) <= 50) || energy < 5) {
@@ -39,7 +42,7 @@ if (point_distance(x, y, _friend.x, _friend.y) < 96 && id != _friend.id && _frie
 		walkx = irandom_range(60, 1860);
 		walky = irandom_range(60, 1020);
 		image_xscale = (x < walkx ? 1 : -1);
-		audio_play_sound(patpat, -1, true);
+		patpat = audio_play_sound(sfx_patpatpat, -1, true);
 	}
 } else if (_near_castle) {
 	if (mood < 6) {
@@ -52,7 +55,7 @@ if (point_distance(x, y, _friend.x, _friend.y) < 96 && id != _friend.id && _frie
 		walkx = irandom_range(60, 1860);
 		walky = irandom_range(60, 1020);
 		image_xscale = (x < walkx ? 1 : -1);
-		audio_play_sound(patpat, -1, true);
+		patpat = audio_play_sound(sfx_patpatpat, -1, true);
 	}
 } else if (y > (g.tide ? 820 : 940)) {
 	if ((potty < 4 && random(100) <= 90) || potty < 2) {
@@ -63,19 +66,19 @@ if (point_distance(x, y, _friend.x, _friend.y) < 96 && id != _friend.id && _frie
 		sprite_index = spr_alien_splashing;
 		task = "Splashing around";
 		alarm[1] = 1200;
-		audio_play_sound(splish, -1, true);
+		splish = audio_play_sound(sfx_splish, -1, true);
 	} else if (random(100) <= 40) {
 		sprite_index = spr_alien_drinking;
 		task = "Drinking saltwater";
 		alarm[1] = 600;
-		audio_play_sound(slurrrp, 1, true);
+		slurrrp = audio_play_sound(sfx_slurrrp, 1, true);
 	} else {
 		sprite_index = spr_alien_walking;
 		task = "Wandering";
 		walkx = irandom_range(60, 1860);
 		walky = irandom_range(820, 1020);
 		image_xscale = (x < walkx ? 1 : -1);
-		audio_play_sound(patpat, -1, true);
+		patpat = audio_play_sound(sfx_patpatpat, -1, true);
 	}
 } else if (position_meeting(x, y, obj_hitbox_sand)) {
 	var _digspot = instance_nearest(x, y, obj_x);
@@ -96,7 +99,7 @@ if (point_distance(x, y, _friend.x, _friend.y) < 96 && id != _friend.id && _frie
 		sprite_index = spr_alien_dig;
 		task = "Buried treasure";
 		alarm[1] = 880;
-		audio_play_sound(diggyhole, -1, true);
+		diggyhole = audio_play_sound(sfx_dig, -1, true);
 	} else if (_foodat && food < 6) {
 		sprite_index = spr_alien_eat;
 		task = (_foodspot.image_index == 3 ? "Eating gold fruit" : (_foodspot.image_index == 4 ? "Eating icecream" : "Eating fruit"));
@@ -115,7 +118,7 @@ if (point_distance(x, y, _friend.x, _friend.y) < 96 && id != _friend.id && _frie
 		sprite_index = spr_alien_dig;
 		task = "Digging for\nsand dollars";
 		alarm[1] = 1020;
-		audio_play_sound(diggyhole, -1, true);
+		diggyhole= audio_play_sound(sfx_dig, -1, true);
 	} else if (mood > 4 && food > 3 && energy > 4 && potty > 3 && (random(100) <= 30 || (instance_number(obj_alien) < 2 && random(100) <= 45))) {
 		sprite_index = spr_alien_sex;
 		task = "Repopulating\n(asexual style)";
@@ -130,7 +133,7 @@ if (point_distance(x, y, _friend.x, _friend.y) < 96 && id != _friend.id && _frie
 		walkx = irandom_range(60, 1860);
 		walky = irandom_range(60, 1020);
 		image_xscale = (x < walkx ? 1 : -1);
-		audio_play_sound(patpat, -1, true);
+		patpat = audio_play_sound(sfx_patpatpat, -1, true);
 	}
 } else {
 	if (mood > 4 && food > 3 && energy > 4 && potty > 3 && (random(100) <= 40 || (instance_number(obj_alien) < 2 && random(100) <= 60))) {
@@ -147,7 +150,7 @@ if (point_distance(x, y, _friend.x, _friend.y) < 96 && id != _friend.id && _frie
 		walkx = irandom_range(60, 1860);
 		walky = irandom_range(60, 1020);
 		image_xscale = (x < walkx ? 1 : -1);
-		audio_play_sound(patpat, -1, true);
+		patpat = audio_play_sound(sfx_patpatpat, -1, true);
 	}
 }
 

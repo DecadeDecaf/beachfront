@@ -17,9 +17,9 @@ dragging = 0;
 walkx = x;
 walky = y;
 
-slurrrp = sfx_slurrrp;
-patpat = sfx_patpatpat;
-diggyhole = sfx_dig;
-splish = sfx_splish;
+slurrrp = -1;
+patpat = -1;
+diggyhole = -1;
+splish = -1;
 
 died = false;
