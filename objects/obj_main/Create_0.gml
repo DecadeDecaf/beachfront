@@ -1,5 +1,14 @@
 init();
 
+g.newgrounds = true;
+g.all_upgrades = false;
+
+if (g.newgrounds) {
+	ng_connect("60143:YvidQxZa", "FFsJXAaZPXXW+PIiXb0Xcw==");
+	ng_initialize_medals_and_scoreboard();
+	ng_request_login();
+}
+
 g.alien = -1;
 g.sanddollars = 0;
 

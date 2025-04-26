@@ -1,5 +1,7 @@
 {
   "FolderOrderSettings": [
+    {"name":"extensions","order":12,"path":"folders/extensions.yy",},
+    {"name":"Newgrounds GMS2 API","order":1,"path":"folders/extensions/Newgrounds GMS2 API.yy",},
     {"name":"fonts","order":7,"path":"folders/fonts.yy",},
     {"name":"music","order":11,"path":"folders/music.yy",},
     {"name":"objects","order":9,"path":"folders/objects.yy",},
@@ -11,6 +13,7 @@
   "ResourceOrderSettings": [
     {"name":"sfx_munch","order":7,"path":"sounds/sfx_munch/sfx_munch.yy",},
     {"name":"sfx_lift","order":1,"path":"sounds/sfx_lift/sfx_lift.yy",},
+    {"name":"oCloudSaveLoader","order":2,"path":"objects/oCloudSaveLoader/oCloudSaveLoader.yy",},
     {"name":"spr_sandcastle","order":32,"path":"sprites/spr_sandcastle/spr_sandcastle.yy",},
     {"name":"spr_alien_dead","order":30,"path":"sprites/spr_alien_dead/spr_alien_dead.yy",},
     {"name":"spr_food","order":20,"path":"sprites/spr_food/spr_food.yy",},
@@ -42,6 +45,7 @@
     {"name":"obj_hitbox_sand","order":4,"path":"objects/obj_hitbox_sand/obj_hitbox_sand.yy",},
     {"name":"spr_tree2","order":19,"path":"sprites/spr_tree2/spr_tree2.yy",},
     {"name":"sfx_slurrrp","order":3,"path":"sounds/sfx_slurrrp/sfx_slurrrp.yy",},
+    {"name":"NGio_CS_library","order":1,"path":"scripts/NGio_CS_library/NGio_CS_library.yy",},
     {"name":"sfx_dies","order":8,"path":"sounds/sfx_dies/sfx_dies.yy",},
     {"name":"obj_alien","order":3,"path":"objects/obj_alien/obj_alien.yy",},
     {"name":"spr_tree1","order":18,"path":"sprites/spr_tree1/spr_tree1.yy",},

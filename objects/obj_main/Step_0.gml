@@ -50,3 +50,10 @@ with (obj_alien) {
 if (!instance_exists(g.alien)) {
 	g.alien = -1;
 }
+
+if (g.newgrounds && !g.all_upgrades) {
+	if (instance_number(obj_button) == 0) {
+		g.all_upgrades = true;
+		ng_unlockmedal("A Fool's Paradise");
+	}
+}

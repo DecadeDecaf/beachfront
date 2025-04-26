@@ -11,6 +11,8 @@
   },
   "defaultScriptType": 1,
   "Folders": [
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"extensions","folderPath":"folders/extensions.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Newgrounds GMS2 API","folderPath":"folders/extensions/Newgrounds GMS2 API.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"fonts","folderPath":"folders/fonts.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"music","folderPath":"folders/music.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"objects","folderPath":"folders/objects.yy",},
@@ -28,6 +30,7 @@
   "resources": [
     {"id":{"name":"sfx_munch","path":"sounds/sfx_munch/sfx_munch.yy",},},
     {"id":{"name":"sfx_lift","path":"sounds/sfx_lift/sfx_lift.yy",},},
+    {"id":{"name":"oCloudSaveLoader","path":"objects/oCloudSaveLoader/oCloudSaveLoader.yy",},},
     {"id":{"name":"spr_sandcastle","path":"sprites/spr_sandcastle/spr_sandcastle.yy",},},
     {"id":{"name":"spr_alien_dead","path":"sprites/spr_alien_dead/spr_alien_dead.yy",},},
     {"id":{"name":"spr_food","path":"sprites/spr_food/spr_food.yy",},},
@@ -62,6 +65,8 @@
     {"id":{"name":"obj_hitbox_sand","path":"objects/obj_hitbox_sand/obj_hitbox_sand.yy",},},
     {"id":{"name":"spr_tree2","path":"sprites/spr_tree2/spr_tree2.yy",},},
     {"id":{"name":"sfx_slurrrp","path":"sounds/sfx_slurrrp/sfx_slurrrp.yy",},},
+    {"id":{"name":"NGio_CS_library","path":"scripts/NGio_CS_library/NGio_CS_library.yy",},},
+    {"id":{"name":"NG_studio2_API","path":"extensions/NG_studio2_API/NG_studio2_API.yy",},},
     {"id":{"name":"sfx_dies","path":"sounds/sfx_dies/sfx_dies.yy",},},
     {"id":{"name":"obj_alien","path":"objects/obj_alien/obj_alien.yy",},},
     {"id":{"name":"spr_tree1","path":"sprites/spr_tree1/spr_tree1.yy",},},
